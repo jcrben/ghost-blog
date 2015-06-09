@@ -1,0 +1,34 @@
+<div class="sidebar" role="aside" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+    <header class="header" role="banner">
+        {{! The logo of the blog }}
+        <a href="/"><img id="blog" class="logo" src="{{@blog.logo}}"></a>
+
+        {{! The title of the blog }}
+        <h1 class="title"><a href="/">{{@blog.title}}</a></h1>
+
+        {{! The description of the blog }}
+        <p class="description">{{@blog.description}}</p>
+
+        {{! Small separator between user details and menu }}
+        <div class="separator"></div>
+
+        {{! Navigation menu }}
+        {{> "nav"}}
+
+        {{! Social links }}
+        <div class="social-icons">
+            <a href="https://github.com/calincru" class="icon icon-github-circled"></a>
+            <a href="http://ro.linkedin.com/pub/calin-cruceru/98/9a5/781" class="icon icon-linkedin"></a>
+            <a href="https://plus.google.com/u/0/+CălinCruceru/" class="icon icon-gplus"></a>
+            <a href="https://www.facebook.com/crucerucalincristian" class="icon icon-facebook"></a>
+            <a href="https://twitter.com/calin_cruceru" class="icon icon-twitter"></a>
+            <a href="/rss" class="icon icon-rss"></a>
+            <a href="mailto:crucerucalincristian@gmail.com" class="icon icon-mail"></a>
+        </div>
+    </header>
+
+    <footer class="site-footer">
+        <section class="copyright">{{> "copyright"}}</section>
+        <section class="poweredby">Proudly published with <a class="ghost-link" href="https://ghost.org">Ghost</a> using the <a class="ghost-link" href="https://github.com/calincru/KISS">KISS</a> theme. Powered by <a class="ghost-link" href="https://digitalocean.com">DigitalOcean</a>.</section>
+    </footer>
+</div>
