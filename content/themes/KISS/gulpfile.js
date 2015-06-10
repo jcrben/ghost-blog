@@ -35,7 +35,7 @@ gulp.task('prod:minify-scripts', function() {
 gulp.task('prod:minify-css', function() {
     return streamqueue({ objectMode: true },
         gulp.src('assets/css/normalize.css'),
-        // gulp.src('assets/css/main.css'),
+        gulp.src('assets/css/boilerplate.css'),
         gulp.src('assets/css/main.css'),
         gulp.src('assets/css/prism.css')
     )

@@ -10,7 +10,7 @@
     {{#if post}}
     <meta name="keywords" content="{{#each post.tags}}{{name}},{{/each}}" />
     {{else}}
-    <meta name="keywords" content="Calin, Cruceru, c, c++, engineering, vi, algorithms" />
+    <meta name="keywords" content="Ben Creasy, engineering, javascript, html, css, algorithms" />
     {{/if}}
 
     <meta name="description" content="{{meta_description}}" />
@@ -19,6 +19,7 @@
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- @ifdef NODE_ENV='production' -->
     {{! Favicons. I used http://realfavicongenerator.net/ - a great favicons generator. }}
     <link rel="shortcut icon" href="{{asset "favicons/favicon.ico"}}">
     <link rel="apple-touch-icon" sizes="57x57" href="{{asset "favicons/apple-touch-icon-57x57.png"}}">
@@ -37,10 +38,21 @@
     <meta name="msapplication-TileColor" content="#2b5797" />
     <meta name="msapplication-TileImage" content="{{asset "favicons/mstile-144x144.png"}}" />
     <meta name="msapplication-config" content="{{asset "favicons/browserconfig.xml"}}" />
+    <!-- @endif -->
+
 
     {{! Styles }}
+    <!-- @ifdef NODE_ENV='production' -->
     <link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{{asset "build/all.min.css"}}" />
+    <!-- @endif -->
+
+    <!-- @idndef NODE_ENV -->
+    <link rel="stylesheet" href="{{asset "css/normalize.css"}}">
+    <link rel="stylesheet" href="{{asset "css/main.css"}}">
+    <link rel="stylesheet" href="{{asset "css/boilerplate.css"}}">
+    <link rel="stylesheet" href="{{asset "css/prism.css"}}">
+    <!-- @endif -->
 
     {{! Google Analytics }}
     {{> "analytics"}}
