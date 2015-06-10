@@ -1,6 +1,7 @@
 // # Ghost Configuration
 // Setup your Ghost install for various environments
 // Documentation can be found at http://support.ghost.org/config/
+// changed prod filename from path.join(__dirname, '/content/data/ghost.db')
 
 var path = require('path'),
     config;
@@ -15,7 +16,7 @@ config = {
         database: {
             client: 'sqlite3',
             connection: {
-                filename: path.join(__dirname, '/content/data/ghost.db')
+                filename: '/home/persistence/ghost-test.db'
             },
             debug: false
         },
@@ -24,7 +25,7 @@ config = {
             // Host to be passed to node's `net.Server#listen()`
             host: '0.0.0.0',
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-            port: process.env.PORT
+            port: process.env.PORT || 5000
         },
         paths: {
             contentPath: path.join(__dirname, '/content/')

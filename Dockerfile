@@ -9,6 +9,7 @@ RUN apt-get -qq update -y
 RUN apt-get install -y nodejs npm sqlite3 -y
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN mkdir /app
+VOLUME /home/persistence
 ADD . /app
 WORKDIR /app
 # this works! -> CMD npm install --production; node index.js
