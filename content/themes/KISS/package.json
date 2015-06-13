@@ -28,6 +28,7 @@
   "author": "Calin Cruceru",
   "license": "MIT",
   "dependencies": {
-    "meow": "^3.0.0"
+    "meow": "^3.0.0",
+    "prismjs": "0.0.1"
   }
 }

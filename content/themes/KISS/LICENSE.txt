@@ -1,3 +1,4 @@
+Modifications Copyright (C) 2015 Ben Creasy <ben@bencreasy.com>
 Copyright (C) 2014 Călin Cruceru <calin@rosedu.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of

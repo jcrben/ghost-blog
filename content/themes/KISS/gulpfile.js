@@ -55,6 +55,10 @@ gulp.task('process', function() {
     .pipe(preprocess())
     .pipe(rename({extname: '.hbs'}))
     .pipe(gulp.dest('./'))
+
+    // Add non-devDependencies here
+    gulp.src('node_modules/prismjs/prism.js')
+    .pipe(gulp.dest('assets/js'));
 })
 
 // The default task (called when you run `gulp` from cli)

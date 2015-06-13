@@ -118,10 +118,10 @@ body {
 
 .sidebar .logo {
   display: block;
-  width: 150px;
-  height: auto;
+  width: auto;
+  height: 125px;
   background-size: contain;
-  margin: 30px auto 20px auto;
+  margin: 0px auto 20px auto;
   border-radius: 50%;
   background: no-repeat;
   border: 1px solid white;
@@ -169,7 +169,21 @@ body {
   font-size: .9em;
   font-style: italic;
   margin: 1em 0 1em 0;
-  line-height: 0.9em;
+  line-height: 1.4em;
+}
+
+.sidebar p {
+  display: block;
+  width: 35% !important;
+  height: auto;
+}
+.sidebar pre.description {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 260px;
+  height: auto;
+  display: block;
+  overflow: auto;
 }
 
 .sidebar .footer {
@@ -390,8 +404,8 @@ body {
     }
 
     .sidebar .logo {
-      width: 40%;
-      height: auto;
+      width: auto;
+      height: 75px;
       margin: 0 auto 10px;
     }
 
@@ -401,10 +415,11 @@ body {
 }
 
 @media all and (max-width: 800px) {
+
   .sidebar {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 230px;
     padding: 20px 20px 20px 20px;
     text-align: center;
     color: #fff;
@@ -417,11 +432,15 @@ body {
   }
 
   .sidebar .header {
-    margin-top: 5%;
+    margin-top: 0%;
   }
 
   .sidebar .description {
     display: none;
+  }
+
+  .sidebar pre {
+    margin-bottom: 10px;
   }
 
   .sidebar .circle {
@@ -433,13 +452,12 @@ body {
     display: none;
   }
 
-  .content {
-    margin-left: 0px;
+  .sidebar .title {
+    display: none;
   }
 
-  .separator {
-    margin: 0 auto;
-    width: 60%;
+  .content {
+    margin-left: 0px;
   }
 
   .main-nav ul {
@@ -470,9 +488,16 @@ body {
   }
 }
 
-@media all and (max-width: 400px) {
+@media (max-width: 350px), (max-height: 400px) {
+  .sidebar {
+    height: 100px;
+    width: auto;
+    background-position: 10%;
+  }
+  .sidebar pre.description {
+    display: none;
+  }
   .main-nav ul li {
     width: 32%;
   }
-
 }
