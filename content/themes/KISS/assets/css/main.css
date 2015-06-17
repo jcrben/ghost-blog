@@ -223,10 +223,11 @@ body {
     margin-bottom: 0;
 }
 
+
 .content {
   margin-left: 40%;
   padding: 20px 50px 0 50px;
-  max-width: 650px;
+  max-width: 800px;
 }
 
 .content .post {
@@ -282,6 +283,22 @@ body {
   margin-bottom: 2em;
 }
 
+.pathhero > img {
+/*  background: #303538 url(../images/pathhero.png) no-repeat center center;
+  background-image: url(../images/pathhero.png);
+  background-size: auto 200px;
+  height: 50px;
+  width: 200px;
+  position: absolute;*/
+  max-height: auto;
+  max-width: 300px;
+}
+
+.jobbyrogers > img {
+  max-height: auto;
+  max-width: 300px;
+}
+
 .project-page {
   margin: 0.5em 0 0.5em 0;
 }
@@ -289,7 +306,6 @@ body {
 .project-title a {
   text-decoration: none;
   display: block;
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.3);
 }
 
 .project-name {

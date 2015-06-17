@@ -15,22 +15,28 @@
         </section>
 
         {{! Here go the static pages. Make sure you modify the links of the pages and their titles. }}
-        <p class="project-page">
+        <div class="project-page">
             <span class="project-title" itemprop="headline">
-                <a href="#">
-                    <span class="project-name">Project 1</span>
-                    <span class="project-description">short description for project 1</span>
+                <a href="http://pathhero.com">
+                    <span class="project-name">Path Hero</span>
+                    <span class="project-description">Create scavenger hunts by clicking on a map, and then play that hunt in a responsive mobile interface which checks your geolocation. Built with ReactJS, Reflux, and Express/MongoDB. I handled the hunt creation platform, integration with the map, and paired on some of the other aspects.</span>
                 </a>
             </span>
-        </p>
-        <p class="project-page">
+            <div class="pathhero">
+                <img src={{asset "images/pathhero.png"}}
+            </div>
+        </div>
+        <div class="project-page">
             <span class="project-title" itemprop="headline">
-                <a href="#">
-                    <span class="project-name">Project 2</span>
-                    <span class="project-description">short description for project 2</span>
+                <a href="https://careful-harmonica.firebaseapp.com/#/land">
+                    <span class="project-name">Jobby Rogers</span>
+                    <span class="project-description">Gamifying the job hunt! Rack up points by finding employers. Built with AngularJS and Firebase and using and Angular Material and Bourbon for styling. I played a strong part in this project, creating views and controllers, handling authentication and much of Firebase data flow, and adding HTML5 file upload.</span>
                 </a>
             </span>
-        </p>
+            <div class="jobbyrogers">
+            <img src={{asset "images/jobbyrogers.png"}}
+            </div>
+        </div>
 
          <footer class="post-footer">
             <section class="share">

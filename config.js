@@ -11,7 +11,7 @@ config = {
     // When running Ghost in the wild, use the production environment
     // Configure your URL and mail settings here
     production: {
-        url: 'http://placeholder.com:5000',
+        url: 'http://bencreasy.com',
         mail: {},
         database: {
             client: 'sqlite3',
