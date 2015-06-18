@@ -12,5 +12,4 @@ RUN mkdir /app
 VOLUME /home/persistence
 ADD . /app
 WORKDIR /app
-# this works! -> CMD npm install --production; node index.js
 CMD npm install --production; npm start --production
