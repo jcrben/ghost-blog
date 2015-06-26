@@ -19,7 +19,7 @@
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- @ifdef NODE_ENV='production' -->
+    <!-- @if NODE_ENV='production' -->
     {{! Favicons. I used http://realfavicongenerator.net/ - a great favicons generator. }}
     <link rel="shortcut icon" href="{{asset "favicons/favicon.ico"}}">
     <link rel="apple-touch-icon" sizes="57x57" href="{{asset "favicons/apple-touch-icon-57x57.png"}}">
@@ -42,12 +42,12 @@
 
 
     {{! Styles }}
-    <!-- @ifdef NODE_ENV='production' -->
+    <!-- @if NODE_ENV='production' -->
     <link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{{asset "build/all.min.css"}}" />
     <!-- @endif -->
 
-    <!-- @idndef NODE_ENV -->
+    <!-- @ifndef NODE_ENV -->
     <link rel="stylesheet" href="{{asset "css/normalize.css"}}">
     <link rel="stylesheet" href="{{asset "css/main.css"}}">
     <link rel="stylesheet" href="{{asset "css/boilerplate.css"}}">
@@ -56,6 +56,7 @@
 
     {{! Google Analytics }}
     {{> "analytics"}}
+    {{> "tagmanager"}}
 
     {{! Twitter card }}
     <meta property="twitter:card" content="summary" />
