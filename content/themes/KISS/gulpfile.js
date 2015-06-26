@@ -63,5 +63,5 @@ gulp.task('process', function() {
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('dev', ['process', 'watch'])
-gulp.task('prod', ['process', 'minify-scripts', 'minify-css'])
+gulp.task('prod', ['process', 'prod:minify-scripts', 'prod:minify-css'])
 gulp.task('default', taskList.withFilters(/:/, 'default'));
