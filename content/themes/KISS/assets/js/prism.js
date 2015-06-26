@@ -1,4 +1,8 @@
-/* http://prismjs.com/download.html?themes=prism-twilight&languages=markup+css+clike+javascript */
+
+/* **********************************************
+     Begin prism-core.js
+********************************************** */
+
 self = (typeof window !== 'undefined')
 	? window   // if in browser
 	: (
@@ -425,20 +429,25 @@ return self.Prism;
 if (typeof module !== 'undefined' && module.exports) {
 	module.exports = Prism;
 }
-;
+
+
+/* **********************************************
+     Begin prism-markup.js
+********************************************** */
+
 Prism.languages.markup = {
 	'comment': /<!--[\w\W]*?-->/,
 	'prolog': /<\?.+?\?>/,
 	'doctype': /<!DOCTYPE.+?>/,
 	'cdata': /<!\[CDATA\[[\w\W]*?]]>/i,
 	'tag': {
-		pattern: /<\/?[^\s>\/]+(?:\s+[^\s>\/=]+(?:=(?:("|')(?:\\\1|\\?(?!\1)[\w\W])*\1|[^\s'">=]+))?)*\s*\/?>/i,
+		pattern: /<\/?[\w:-]+\s*(?:\s+[\w:-]+(?:=(?:("|')(\\?[\w\W])*?\1|[^\s'">=]+))?\s*)*\/?>/i,
 		inside: {
 			'tag': {
-				pattern: /^<\/?[^\s>\/]+/i,
+				pattern: /^<\/?[\w:-]+/i,
 				inside: {
 					'punctuation': /^<\/?/,
-					'namespace': /^[^\s>\/:]+:/
+					'namespace': /^[\w-]+?:/
 				}
 			},
 			'attr-value': {
@@ -449,9 +458,9 @@ Prism.languages.markup = {
 			},
 			'punctuation': /\/?>/,
 			'attr-name': {
-				pattern: /[^\s>\/]+/,
+				pattern: /[\w:-]+/,
 				inside: {
-					'namespace': /^[^\s>\/:]+:/
+					'namespace': /^[\w-]+?:/
 				}
 			}
 
@@ -467,7 +476,12 @@ Prism.hooks.add('wrap', function(env) {
 		env.attributes['title'] = env.content.replace(/&amp;/, '&');
 	}
 });
-;
+
+
+/* **********************************************
+     Begin prism-css.js
+********************************************** */
+
 Prism.languages.css = {
 	'comment': /\/\*[\w\W]*?\*\//,
 	'atrule': {
@@ -517,7 +531,12 @@ if (Prism.languages.markup) {
 			alias: 'language-css'
 		}
 	}, Prism.languages.markup.tag);
-};
+}
+
+/* **********************************************
+     Begin prism-clike.js
+********************************************** */
+
 Prism.languages.clike = {
 	'comment': [
 		{
@@ -550,7 +569,12 @@ Prism.languages.clike = {
 	'ignore': /&(lt|gt|amp);/i,
 	'punctuation': /[{}[\];(),.:]/
 };
-;
+
+
+/* **********************************************
+     Begin prism-javascript.js
+********************************************** */
+
 Prism.languages.javascript = Prism.languages.extend('clike', {
 	'keyword': /\b(break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|false|finally|for|function|get|if|implements|import|in|instanceof|interface|let|new|null|package|private|protected|public|return|set|static|super|switch|this|throw|true|try|typeof|var|void|while|with|yield)\b/,
 	'number': /\b-?(0x[\dA-Fa-f]+|\d*\.?\d+([Ee][+-]?\d+)?|NaN|-?Infinity)\b/,
@@ -579,4 +603,70 @@ if (Prism.languages.markup) {
 		}
 	});
 }
-;
+
+
+/* **********************************************
+     Begin prism-file-highlight.js
+********************************************** */
+
+(function () {
+	if (!self.Prism || !self.document || !document.querySelector) {
+		return;
+	}
+
+	self.Prism.fileHighlight = function() {
+
+		var Extensions = {
+			'js': 'javascript',
+			'html': 'markup',
+			'svg': 'markup',
+			'xml': 'markup',
+			'py': 'python',
+			'rb': 'ruby',
+			'ps1': 'powershell',
+			'psm1': 'powershell'
+		};
+
+		Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function(pre) {
+			var src = pre.getAttribute('data-src');
+			var extension = (src.match(/\.(\w+)$/) || [,''])[1];
+			var language = Extensions[extension] || extension;
+
+			var code = document.createElement('code');
+			code.className = 'language-' + language;
+
+			pre.textContent = '';
+
+			code.textContent = 'Loading…';
+
+			pre.appendChild(code);
+
+			var xhr = new XMLHttpRequest();
+
+			xhr.open('GET', src, true);
+
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4) {
+
+					if (xhr.status < 400 && xhr.responseText) {
+						code.textContent = xhr.responseText;
+
+						Prism.highlightElement(code);
+					}
+					else if (xhr.status >= 400) {
+						code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+					}
+					else {
+						code.textContent = '✖ Error: File does not exist or is empty';
+					}
+				}
+			};
+
+			xhr.send(null);
+		});
+
+	};
+
+	self.Prism.fileHighlight();
+
+})();

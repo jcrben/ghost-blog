@@ -47,7 +47,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset "build/all.min.css"}}" />
     <!-- @endif -->
 
-    <!-- @ifndef NODE_ENV -->
+    <!-- @if NODE_ENV='development' -->
     <link rel="stylesheet" href="{{asset "css/normalize.css"}}">
     <link rel="stylesheet" href="{{asset "css/main.css"}}">
     <link rel="stylesheet" href="{{asset "css/boilerplate.css"}}">
@@ -107,7 +107,7 @@
     <!-- @if NODE_ENV='production' -->
     <script type="text/javascript" src="{{asset "build/all.min.js"}}"></script>
     <!-- @endif -->
-    <!-- @ifndef random -->
+    <!-- @if NODE_ENV='development' -->
     <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/prism.js"}}"></script>
