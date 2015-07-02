@@ -283,7 +283,7 @@ body {
   margin-bottom: 2em;
 }
 
-.pathhero > img {
+.pathhero a img {
 /*  background: #303538 url(../images/pathhero.png) no-repeat center center;
   background-image: url(../images/pathhero.png);
   background-size: auto 200px;
@@ -292,11 +292,23 @@ body {
   position: absolute;*/
   max-height: auto;
   max-width: 300px;
+  transition: max-width 1s ease-in-out;
 }
 
-.jobbyrogers > img {
+.pathhero a img:hover {
+  max-width: 600px;
+  transition: max-width 1s ease-in-out;
+}
+
+.jobbyrogers a img {
   max-height: auto;
   max-width: 300px;
+  transition: max-width 1s ease-in-out;
+}
+
+.jobbyrogers a img:hover {
+  max-width: 600px;
+  transition: max-width 1s ease-in-out;
 }
 
 .project-page {
