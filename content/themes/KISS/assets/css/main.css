@@ -193,6 +193,10 @@ body {
   font-size: 12px;
 }
 
+.main-nav {
+  margin-top: 30px;
+}
+
 .main-nav ul {
     padding-left: 0;
     margin: 4em 0 0 0;
@@ -512,7 +516,7 @@ body {
   }
 
   .sidebar .social-icons {
-    margin-top: 0px;
+    margin-top: 5px;
   }
 }
 
